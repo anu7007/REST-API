@@ -103,16 +103,16 @@ $app->put(
     ]
 );
 
-// $container->set(
-//     'mongo',
-//     function () {
-//         $mongo = new \MongoDB\Client("mongodb://mongo", array("username" => 'root', "password" => "password123"));
-//         // mongo "mongodb+srv://sandbox.g819z.mongodb.net/myFirstDatabase" --username root
+$container->set(
+    'mongo',
+    function () {
+        $mongo = new \MongoDB\Client("mongodb://mongo", array("username" => 'root', "password" => "password123"));
+        // mongo "mongodb+srv://sandbox.g819z.mongodb.net/myFirstDatabase" --username root
 
-//         return $mongo->store;
-//     },
-//     true
-// );
+        return $mongo->store;
+    },
+    true
+);
 try {
     $app->handle(
         $_SERVER['REQUEST_URI']
