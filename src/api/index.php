@@ -113,6 +113,7 @@ $container->set(
     },
     true
 );
+
 try {
     $app->handle(
         $_SERVER['REQUEST_URI']

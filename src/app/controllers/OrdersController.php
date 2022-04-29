@@ -6,7 +6,7 @@ class OrdersController extends Controller
 {
     public function indexAction()
     {
-        $data = $this->mongo->orders->find();
+        $data = $this->mongo->order->find()->toArray();
         $this->view->orders = $data;
     }
 }
