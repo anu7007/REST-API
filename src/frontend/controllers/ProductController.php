@@ -7,7 +7,7 @@ class ProductController extends Controller
 {
     public function indexAction()
     {
-        $data = $this->mongo->product->find()->toArray();
+        $data = $this->mongo->product->find();
         $this->view->product = $data;
     }
     public function placeorderAction()
@@ -27,10 +27,18 @@ class ProductController extends Controller
             // print_r($data);
             // die;
             $token = $this->token;
+            // die($token);
             $url = 'http://192.168.2.95:8080/api/order/placeorder/?token=' . $token;
             $client = new Client();
             $client->request('POST', $url, ['form_params' => $data]);
             $this->response->redirect("/frontend/product/index");
         }
+    }
+    public function displayAction()
+    {
+        $post = $this->request->getPost();
+        $id = $post['id'];
+        $quantity = $post['stock'];
+        $this->mongo->products->updateOne(["id" => $id], ['$set' => ['stock' => $quantity]]);
     }
 }

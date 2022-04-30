@@ -46,7 +46,13 @@
                 </tr>
                 <tbody>
                     <?php
-                    foreach ($product as $v) { ?>
+
+use Api\Handlers\Product;
+
+                    
+                    foreach ($product as $v) { 
+                       
+                        ?>
                         <tr>
                             <form action="/frontend/product/placeorder" method="POST">
                             <td><?php echo $v->id ?></td>

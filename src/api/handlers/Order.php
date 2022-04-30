@@ -31,8 +31,22 @@ class Order extends Injectable
                 "status" => "paid"
             );
             $products = $this->mongo->products->findOne(['id' => $data['product_id']]);
-            if (isset($products)) {
+
+            // print_r(($products));
+            // die;
+            if ($products) {
                 $this->mongo->order->insertOne($data);
+                $stock = $products->stock - $data['product_quantity'];
+
+                $this->mongo->products->updateOne(["id" => $data['product_id']], ['$set' => ['stock' => $stock]]);
+
+                $postArr = array(
+                    'id' => $data['product_id'],
+                    'stock' => $stock
+                );
+                $eventmanager = $this->events;
+
+                $eventmanager->fire("myevent:reducequantity", $this, $postArr);
             } else {
                 $data = ["status" => 404, "data" => "product not found"];
                 return $response->setJSONContent($data)->send();

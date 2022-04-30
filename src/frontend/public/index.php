@@ -52,7 +52,7 @@ $container->set(
 $container->set(
     'token',
     function () {
-        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXhhbXBsZS5vcmciLCJhdWQiOiJodHRwOi8vZXhhbXBsZS5jb20iLCJpYXQiOjEzNTY5OTk1MjQsImV4cCI6Mzk2MjkzODk0ODgsInJvbGUiOiJ1c2VyIiwiaWQiOiI2MjZiYWY1Y2E5MzY3YmZhZjQwZGI4OTIifQ.jArgouv_4D64ZbrbKUB5FZo_n4Os5sXA6Pd-3s1ddPI";
+        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXhhbXBsZS5vcmciLCJhdWQiOiJodHRwOi8vZXhhbXBsZS5jb20iLCJpYXQiOjEzNTY5OTk1MjQsImV4cCI6Mzk2MzEzMDA1NjAsInJvbGUiOiJ1c2VyIiwiaWQiOiI2MjZjZTY2OGQ3ZjY2OWRlZTMwNzk1ZjIifQ.JO4uKaFRqXIZn-fbjL_QHfCP6k_JTCE1eL5cKgtS44w";
         return $token;
     }
 );
